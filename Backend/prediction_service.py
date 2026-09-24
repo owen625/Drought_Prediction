@@ -1,9 +1,8 @@
 import os
 import joblib
-import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
-from typing import Optional, Tuple
+from typing import Optional, Tuple, List
 
 class DroughtPredictionService:
     """Service untuk prediksi risiko kekeringan"""
@@ -70,8 +69,7 @@ class DroughtPredictionService:
             'ddd_car_code': ddd_car_code
         }
         
-        features_df = pd.DataFrame([features_dict])
-        return features_df, ddd_car_code
+        return features_list, ddd_car_code
     
     def calculate_spi(self, precipitation: float, 
                      ref_mean: float = 75.0, ref_std: float = 45.0) -> float:
